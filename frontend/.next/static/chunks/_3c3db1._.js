@@ -10,33 +10,68 @@ __turbopack_esm__({
 });
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/jsx-dev-runtime.js [app-client] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/compiled/react/index.js [app-client] (ecmascript)");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$build$2f$polyfills$2f$process$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__ = __turbopack_import__("[project]/node_modules/next/dist/build/polyfills/process.js [app-client] (ecmascript)");
+(()=>{
+    const e = new Error("Cannot find module 'react-hook-form'");
+    e.code = 'MODULE_NOT_FOUND';
+    throw e;
+})();
 ;
 var _s = __turbopack_refresh__.signature();
 "use client"; // Adicione essa linha no início do arquivo
 ;
+;
 function Home() {
     _s();
-    const [message, setMessage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('');
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        fetch(`${("TURBOPACK compile-time value", "http://localhost:3000")}`).then((response)=>response.text()).then((data)=>setMessage(data));
-    }, []);
-    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-        className: "container",
-        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
-            children: message
-        }, void 0, false, {
-            fileName: "[project]/src/app/page.js",
-            lineNumber: 16,
-            columnNumber: 7
-        }, this)
-    }, void 0, false, {
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const onSubmit = (data)=>console.log(data);
+    console.log(watch("example")) // watch input value by passing the name of it
+    ;
+    return /* "handleSubmit" will validate your inputs before invoking "onSubmit" */ /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
+        onSubmit: handleSubmit(onSubmit),
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                defaultValue: "test",
+                ...register("example")
+            }, void 0, false, {
+                fileName: "[project]/src/app/page.js",
+                lineNumber: 23,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                ...register("exampleRequired", {
+                    required: true
+                })
+            }, void 0, false, {
+                fileName: "[project]/src/app/page.js",
+                lineNumber: 26,
+                columnNumber: 7
+            }, this),
+            errors.exampleRequired && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                children: "This field is required"
+            }, void 0, false, {
+                fileName: "[project]/src/app/page.js",
+                lineNumber: 28,
+                columnNumber: 34
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                type: "submit"
+            }, void 0, false, {
+                fileName: "[project]/src/app/page.js",
+                lineNumber: 30,
+                columnNumber: 7
+            }, this)
+        ]
+    }, void 0, true, {
         fileName: "[project]/src/app/page.js",
-        lineNumber: 15,
+        lineNumber: 21,
         columnNumber: 5
     }, this);
 }
-_s(Home, "3v4ozrfWvlmZ97O5zgyhgDZKC+M=");
+_s(Home, "+LcrTzTax1ndAePIwZBfPwbnP68=", false, function() {
+    return [
+        useForm
+    ];
+});
 _c = Home;
 var _c;
 __turbopack_refresh__.register(_c, "Home");
