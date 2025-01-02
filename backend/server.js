@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import { Sequelize } from 'sequelize';
 import { configDotenv } from 'dotenv';
+import next from 'next';  // Import Next.js to handle the frontend
+
 configDotenv();
 
 import userRouter from './src/routes/user.routes.js';
@@ -9,42 +11,56 @@ import expenseRouter from './src/routes/expense.routes.js';
 import logger from './src/middleware/logger.js';
 
 const app = express();
-app.use(cors({
-  origin: process.env.CORS_ORIGIN,
-  credentials: true,
-}));
-app.use(express.json());
 
-app.use(logger);
+// Next.js setup
+const dev = process.env.NODE_ENV == 'production';
+const nextApp = next({ dev, dir: '../frontend' });  // Point Next.js to the frontend folder
+const handle = nextApp.getRequestHandler();
 
-app.use('/users', userRouter); 
-app.use("/expenses", expenseRouter);
+// Prepare the Next.js app
+nextApp.prepare().then(() => {
+  // Middlewares
+  app.use(cors({
+    origin: process.env.CORS_ORIGIN,
+    credentials: true,
+  }));
 
-app.use((req, res, next) => {
-  const start = Date.now(); // Início do timer
+  app.use(express.json());
+  app.use(logger);
 
-  res.on('finish', () => {
-    const duration = Date.now() - start; // Calcula o tempo de execução
-    console.log(`[${new Date().toLocaleString()}] ${req.method} ${req.originalUrl} - Status: ${res.statusCode} - ${duration}ms`);
-    console.log("Request body:", req.body);
+  // API Routes (Handled by Express)
+  app.use('/users', userRouter); 
+  app.use("/expenses", expenseRouter);
+
+  // Custom logging middleware
+  app.use((req, res, next) => {
+    const start = Date.now(); // Início do timer
+
+    res.on('finish', () => {
+      const duration = Date.now() - start; // Calcula o tempo de execução
+      console.log(`[${new Date().toLocaleString()}] ${req.method} ${req.originalUrl} - Status: ${res.statusCode} - ${duration}ms`);
+      console.log("Request body:", req.body);
+    });
+
+    next(); // Continua para a próxima rota ou middleware
   });
 
-  next(); // Continua para a próxima rota ou middleware
+  // Sequelize setup
+  const sequelize = new Sequelize(process.env.DATABASE_URL, {
+    dialect: 'postgres',
+    protocol: 'postgres',
+  });
+
+  sequelize.authenticate()
+    .then(() => console.log('Conectado ao banco de dados'))
+    .catch(err => console.error('Erro ao conectar ao banco de dados:', err));
+
+  // Serve the Next.js pages (frontend)
+  app.all('*', (req, res) => {
+    return handle(req, res); // Passes the request to Next.js
+  });
+
+  // Start the Express server
+  const PORT = process.env.PORT || 3000;
+  app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
 });
-
-// Configuração do Sequelize
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
-  dialect: 'postgres',
-  protocol: 'postgres',
-});
-
-sequelize.authenticate()
-  .then(() => console.log('Conectado ao banco de dados'))
-  .catch(err => console.error('Erro ao conectar ao banco de dados:', err));
-
-app.get('/', (req, res) => {
-  res.send('Backend rodando!');
-});
-
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
