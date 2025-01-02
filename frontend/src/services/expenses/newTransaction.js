@@ -1,6 +1,6 @@
 export const useNewTransaction = () =>
     {
-        const newTransaction = async (data) =>{
+        const newTransaction = async (data, token) =>{
             return new Promise(async (resolve, reject) => {
                 const apiUrl = process.env.NEXT_PUBLIC_API_URL+"/expenses/add";
                 const response = await fetch(apiUrl, {
@@ -8,7 +8,7 @@ export const useNewTransaction = () =>
                     body: JSON.stringify(data),
                     headers: {
                     'Content-Type': 'application/json',
-                    'Authorization': 'Bearer ' + localStorage.getItem('token')
+                    'Authorization': 'Bearer ' + token
                     },
                 })
     

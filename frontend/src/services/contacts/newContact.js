@@ -1,3 +1,5 @@
+import Cookies from "js-cookie";
+
 export const useNewContact = () =>
 {
     const newContact = async (data) =>{
@@ -8,7 +10,7 @@ export const useNewContact = () =>
                 body: JSON.stringify(data),
                 headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + localStorage.getItem('token')
+                'Authorization': 'Bearer ' + Cookies.get('token')
                 },
             })
 

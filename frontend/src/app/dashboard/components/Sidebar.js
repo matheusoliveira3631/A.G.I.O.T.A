@@ -9,6 +9,8 @@ import { useRouter } from "next/navigation";
 
 import ModalMov from "./ModalMov";
 
+import Cookies from "js-cookie";
+
 import Image from "next/image";
 
 export default function DashboardSidebar() {
@@ -48,7 +50,7 @@ export default function DashboardSidebar() {
       <Sidebar.ItemGroup>
         <div className="flex items-center ml-2 mt-4">
           <HiUser className="text-2xl text-gray-500"/>
-          <h2 className="ml-2">{localStorage.getItem("name")}</h2>
+          <h2 className="ml-2">{Cookies.get("name")}</h2>
         </div>
       </Sidebar.ItemGroup>
         <Sidebar.ItemGroup>

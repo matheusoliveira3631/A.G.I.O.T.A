@@ -4,6 +4,8 @@ import { Button, Checkbox, Label, Modal, TextInput } from "flowbite-react";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 
+import Cookies from "js-cookie";
+
 import { useNewContact } from "@/services/contacts/newContact";
 
 export default function ModalContact()
@@ -45,7 +47,7 @@ export default function ModalContact()
                         <Modal.Footer>
                         <Button color="dark" size="lg" onClick={() => 
                             toast.promise(
-                                newContact({name, phone, userId : parseInt(localStorage.getItem("userId"))}),
+                                newContact({name, phone, userId : parseInt(Cookies.get("userId"))}),
                                {
                                  loading: 'Registrando usuário...',
                                  success: <b>Sucesso! Redirecionando para página de login</b>,

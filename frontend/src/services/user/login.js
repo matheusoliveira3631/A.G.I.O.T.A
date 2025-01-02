@@ -1,8 +1,8 @@
 import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 
-export const useLogin = () =>
-{
-    const router = useRouter()
+export const useLogin = () => {
+    const router = useRouter();
 
     const login = (data) => {
         return new Promise(async (resolve, reject) => {
@@ -26,10 +26,10 @@ export const useLogin = () =>
 
             const userData = await response.json();
 
-            localStorage.setItem("userId", userData.id);
-            localStorage.setItem("token", userData.token);
-            localStorage.setItem("email", data.email);
-            localStorage.setItem("name", userData.name);
+            Cookies.set("userId", userData.id);
+            Cookies.set("token", userData.token);
+            Cookies.set("email", data.email);
+            Cookies.set("name", userData.name);
 
             await sleep(2000);
             router.push("/dashboard");
@@ -38,6 +38,4 @@ export const useLogin = () =>
     };
 
     return { login };
-
-   
-}
+};

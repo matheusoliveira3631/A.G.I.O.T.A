@@ -6,6 +6,8 @@ import toast from "react-hot-toast";
 
 import { useNewContact } from "@/services/contacts/newContact";
 
+import Cookies from "js-cookie";
+
 import { fetchContacts } from "@/services/contacts/fetchContacts";
 import { useNewTransaction } from "@/services/expenses/newTransaction";
 
@@ -105,7 +107,7 @@ export default function ModalContact()
                         <Button color="dark" size="md" onClick={() => {
                             toast.promise(
                                 newTransaction({amount: tipo == "+"? parseInt(valor) : -valor, 
-                                                userId: parseInt(localStorage.getItem("userId")), 
+                                                userId: parseInt(Cookies.get("userId")), 
                                                 contactId: parseInt(contato),
                                                 interest: parseFloat(juros),
                                                 interestPeriod: parseInt(modalidade)
