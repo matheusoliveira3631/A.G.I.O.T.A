@@ -28,7 +28,7 @@
       "static/chunks/c16f53c3-2a274de06cdd93b8.js",
       "static/chunks/4-31fea9965f7deb2b.js",
       "static/chunks/420-f2634ed7b485b162.js",
-      "static/chunks/app/dashboard/extrato/page-da05bc8f7d0c9eff.js"
+      "static/chunks/app/dashboard/extrato/page-d1ac889a3e27c59f.js"
     ],
     "/dashboard/contatos/page": [
       "static/chunks/webpack-052f5e132a22a294.js",
@@ -42,7 +42,16 @@
       "static/chunks/c16f53c3-2a274de06cdd93b8.js",
       "static/chunks/4-31fea9965f7deb2b.js",
       "static/chunks/420-f2634ed7b485b162.js",
-      "static/chunks/app/dashboard/contatos/page-a6c449ed504dc6fe.js"
+      "static/chunks/app/dashboard/contatos/page-4453bc0067df93cc.js"
+    ],
+    "/page": [
+      "static/chunks/webpack-052f5e132a22a294.js",
+      "static/chunks/4bd1b696-4f0bb7635e4817b0.js",
+      "static/chunks/215-e274744eb89e44ae.js",
+      "static/chunks/main-app-6a05a9ceb0444a8c.js",
+      "static/chunks/4-31fea9965f7deb2b.js",
+      "static/chunks/280-92f8ec28487273ad.js",
+      "static/chunks/app/page-3d42909c431330f6.js"
     ],
     "/dashboard/page": [
       "static/chunks/webpack-052f5e132a22a294.js",
@@ -58,16 +67,7 @@
       "static/chunks/4-31fea9965f7deb2b.js",
       "static/chunks/420-f2634ed7b485b162.js",
       "static/chunks/746-20fce2cb159b0520.js",
-      "static/chunks/app/dashboard/page-ddc065fb62483889.js"
-    ],
-    "/page": [
-      "static/chunks/webpack-052f5e132a22a294.js",
-      "static/chunks/4bd1b696-4f0bb7635e4817b0.js",
-      "static/chunks/215-e274744eb89e44ae.js",
-      "static/chunks/main-app-6a05a9ceb0444a8c.js",
-      "static/chunks/4-31fea9965f7deb2b.js",
-      "static/chunks/280-92f8ec28487273ad.js",
-      "static/chunks/app/page-f3f71117593076f5.js"
+      "static/chunks/app/dashboard/page-5d45e178153c89db.js"
     ],
     "/registro/page": [
       "static/chunks/webpack-052f5e132a22a294.js",
@@ -76,7 +76,7 @@
       "static/chunks/main-app-6a05a9ceb0444a8c.js",
       "static/chunks/4-31fea9965f7deb2b.js",
       "static/chunks/280-92f8ec28487273ad.js",
-      "static/chunks/app/registro/page-29a6bdb8c026de35.js"
+      "static/chunks/app/registro/page-b8ef02d070ac31b7.js"
     ]
   }
 }
