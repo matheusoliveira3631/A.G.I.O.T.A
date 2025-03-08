@@ -15,11 +15,11 @@ const app = express();
 
 // Next.js setup
 const dev = process.env.NODE_ENV == 'production';
-//const nextApp = next({ dev, dir: '../frontend' });  // Point Next.js to the frontend folder
-//const handle = nextApp.getRequestHandler();
+const nextApp = next({ dev, dir: '../web' });  // Point Next.js to the frontend folder
+const handle = nextApp.getRequestHandler();
 
 // Prepare the Next.js app
-//nextApp.prepare().then(() => {
+nextApp.prepare().then(() => {
   // Middlewares
   app.use(cors({
     origin: process.env.CORS_ORIGIN,
@@ -74,14 +74,14 @@ const dev = process.env.NODE_ENV == 'production';
     .catch(err => console.error('Erro ao conectar ao banco de dados:', err));
 
   // Serve the Next.js pages (frontend)
-  /*app.all('*', (req, res) => {
+  app.all('*', (req, res) => {
     return handle(req, res); // Passes the request to Next.js
-  });*/
+  });
 
-  /*app.listen(process.env.PORT, () => {
+  app.listen(process.env.PORT, () => {
     console.log(`Server running on port ${process.env.PORT}`);
-  });*/
+  });
 
-//});
+});
 
-export default app;
+//export default app;
