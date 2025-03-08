@@ -14,11 +14,11 @@ const app = express();
 
 // Next.js setup
 const dev = process.env.NODE_ENV == 'production';
-const nextApp = next({ dev, dir: '../frontend' });  // Point Next.js to the frontend folder
-const handle = nextApp.getRequestHandler();
+/*const nextApp = next({ dev, dir: '../frontend' });  // Point Next.js to the frontend folder
+const handle = nextApp.getRequestHandler();*/
 
 // Prepare the Next.js app
-nextApp.prepare().then(() => {
+//nextApp.prepare().then(() => {
   // Middlewares
   app.use(cors({
     origin: process.env.CORS_ORIGIN,
@@ -73,6 +73,6 @@ nextApp.prepare().then(() => {
 
   // Start the Express server
   
-});
+//});
 
 module.exports = app;
