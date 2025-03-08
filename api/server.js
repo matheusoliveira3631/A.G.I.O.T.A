@@ -3,6 +3,7 @@ import cors from 'cors';
 import { Sequelize } from 'sequelize';
 import { configDotenv } from 'dotenv';
 import next from 'next';  // Import Next.js to handle the frontend
+import pg from "pg";
 
 configDotenv();
 
@@ -52,7 +53,7 @@ const handle = nextApp.getRequestHandler();*/
     process.env.DATABASE_PASSWORD, {
       dialect: 'postgres',
       protocol: 'postgres',
-      dialectModule: require('pg'),
+      dialectModule: pg,
       host: process.env.DATABASE_HOST,
       dialectOptions: {
         ssl: {
