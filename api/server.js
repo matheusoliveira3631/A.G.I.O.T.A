@@ -52,6 +52,7 @@ const handle = nextApp.getRequestHandler();*/
     process.env.DATABASE_PASSWORD, {
       dialect: 'postgres',
       protocol: 'postgres',
+      dialectModule: require('pg'),
       host: process.env.DATABASE_HOST,
       dialectOptions: {
         ssl: {
