@@ -76,4 +76,4 @@ const handle = nextApp.getRequestHandler();*/
   
 //});
 
-module.exports = app;
+export default app;
