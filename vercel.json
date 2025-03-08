@@ -3,7 +3,10 @@
     "builds": [
       {
         "src": "api/server.js",
-        "use": "@vercel/node"
+        "use": "@vercel/node",
+        "config": {
+          "includeFiles": ["api/prisma/schema.prisma"]
+        }
       },
       {
         "src": "web/package.json",
@@ -13,17 +16,12 @@
     "routes": [
       {
         "src": "/api/(.*)",
-        "dest": "/api/server.js"
+        "dest": "api/server.js"
       },
       {
         "src": "/(.*)",
-        "dest": "/web/$1"
+        "dest": "web/$1"
       }
-    ],
-    "functions": {
-    "api/server.js": {
-      "includeFiles": "api/prisma/schema.prisma"
-    }
-  }
+    ]
   }
   
