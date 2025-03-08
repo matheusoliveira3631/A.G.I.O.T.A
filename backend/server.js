@@ -46,10 +46,21 @@ nextApp.prepare().then(() => {
   });
 
   // Sequelize setup
-  const sequelize = new Sequelize(process.env.DATABASE_URL, {
-    dialect: 'postgres',
-    protocol: 'postgres',
-  });
+  const sequelize = new Sequelize(
+    process.env.DATABASE_NAME,
+    process.env.DATABASE_USER,
+    process.env.DATABASE_PASSWORD, {
+      dialect: 'postgres',
+      protocol: 'postgres',
+      host: process.env.DATABASE_HOST,
+      dialectOptions: {
+        ssl: {
+          require: true,
+          rejectUnauthorized: false, // Adjust based on your security needs
+        }
+      },
+    }
+  );
 
   sequelize.authenticate()
     .then(() => console.log('Conectado ao banco de dados'))
@@ -61,6 +72,7 @@ nextApp.prepare().then(() => {
   });
 
   // Start the Express server
-  const PORT = process.env.PORT || 3000;
-  app.listen(PORT, () => console.log(`Servidor rodando na porta ${PORT}`));
+  
 });
+
+module.exports = app;

@@ -2,7 +2,7 @@ import Cookies from 'js-cookie';
 
 export const fetchExpenses = async () => {
     try {
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL+"/users/expenses/"+Cookies.get('userId');
+        const apiUrl = "/api"+"/users/expenses/"+Cookies.get('userId');
         const response = await fetch(apiUrl, {
             method: 'GET',
             headers: {

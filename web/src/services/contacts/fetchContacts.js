@@ -3,7 +3,7 @@ import Cookies from "js-cookie";
 
 export const fetchContacts = async () => {
     try {
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL+"/users/contacts/"+Cookies.get('userId');
+        const apiUrl = "/api"+"/users/contacts/"+Cookies.get('userId');
         const response = await fetch(apiUrl, {
             method: 'GET',
             headers: {

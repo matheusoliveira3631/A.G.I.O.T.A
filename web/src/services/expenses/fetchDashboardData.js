@@ -2,8 +2,8 @@ import Cookies from "js-cookie";
 
 export const fetchDahsboardData = async (userId) => {
     try {
-        const dashboardURL = process.env.NEXT_PUBLIC_API_URL+"/users/dashboardData/"+Cookies.get('userId');
-        const balanceURL = process.env.NEXT_PUBLIC_API_URL+"/expenses/balance/"+Cookies.get('userId');    
+        const dashboardURL = "/api"+"/users/dashboardData/"+Cookies.get('userId');
+        const balanceURL = "/api"+"/expenses/balance/"+Cookies.get('userId');    
         const response = await fetch(dashboardURL, {
             method: 'GET',
             headers: {

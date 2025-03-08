@@ -2,7 +2,7 @@ export const useNewTransaction = () =>
     {
         const newTransaction = async (data, token) =>{
             return new Promise(async (resolve, reject) => {
-                const apiUrl = process.env.NEXT_PUBLIC_API_URL+"/expenses/add";
+                const apiUrl = "/api"+"/expenses/add";
                 const response = await fetch(apiUrl, {
                     method: 'POST',
                     body: JSON.stringify(data),

@@ -6,7 +6,7 @@ export const useLogin = () => {
 
     const login = (data) => {
         return new Promise(async (resolve, reject) => {
-            const apiUrl = process.env.NEXT_PUBLIC_API_URL + "/users/login";
+            const apiUrl = "/api" + "/users/login";
             const response = await fetch(apiUrl, {
                 method: 'POST',
                 body: JSON.stringify(data),
