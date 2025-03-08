@@ -71,7 +71,6 @@ const handle = nextApp.getRequestHandler();*/
     return handle(req, res); // Passes the request to Next.js
   });
 
-  // Start the Express server
   
 //});
 
