@@ -30,8 +30,13 @@ const dev = process.env.NODE_ENV == 'production';
   app.use(logger);
 
   // API Routes (Handled by Express)
-  app.use('/users', userRouter); 
-  app.use("/expenses", expenseRouter);
+  /*app.use('/users', userRouter); 
+  app.use("/expenses", expenseRouter);*/
+
+  const parentRouter = express.Router();
+  parentRouter.use('/users', userRouter);
+  parentRouter.use("/expenses", expenseRouter);
+  app.use('/api', parentRouter);
 
   // Custom logging middleware
   app.use((req, res, next) => {
