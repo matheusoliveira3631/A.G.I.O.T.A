@@ -73,7 +73,10 @@ const dev = process.env.NODE_ENV == 'production';
     return handle(req, res); // Passes the request to Next.js
   });*/
 
-  
+  /*app.listen(process.env.PORT, () => {
+    console.log(`Server running on port ${process.env.PORT}`);
+  });*/
+
 //});
 
 export default app;
